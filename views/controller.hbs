@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/controller.css" />
+	</head>
+
+	<body>
+		
+		<div class="container">
+			<div class="actionBtn" info="up" style="background-image: url(../img/up.png);margin-left: -50px;left: 50%;top:50%;margin-top: -150px;"></div>
+			<div class="actionBtn" info="right" style="background-image: url(../img/right.png);margin-left: 50px;left: 50%;top:50%;margin-top: -50px;"></div>
+			<div class="actionBtn" info="down" style="background-image: url(../img/down.png);margin-left: -50px;left: 50%;top:50%;margin-top: 50px;"></div>
+			<div class="actionBtn" info="left" style="background-image: url(../img/left.png);margin-left: -150px;left: 50%;top:50%;margin-top: -50px;"></div>
+		</div>
+		
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/socket.io/1.4.5/socket.io.min.js"></script>
+	<script type="text/javascript">
+		function UrlSearch() {
+			var name, value;
+			var str = location.href; //取得整个地址栏
+			var num = str.indexOf("?");
+			str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+			var arr = str.split("&"); //各个参数放到数组里
+			for (var i = 0; i < arr.length; i++) {
+				num = arr[i].indexOf("=");
+				if (num > 0) {
+					name = arr[i].substring(0, num);
+					value = arr[i].substr(num + 1);
+					this[name] = value;
+				}
+			}
+		}
+		var request = new UrlSearch(); //实例化
+		
+		var socket = io();
+		$('.actionBtn').bind("touchstart",function(e){
+			socket.emit("control", request.id+"="+$(e.target).attr("info")+"=start="+socket.id );
+		})
+		$('.actionBtn').bind("touchend",function(e){
+			socket.emit("control", request.id+"="+$(e.target).attr("info")+"=end="+socket.id );
+		})
+		socket.on('chat message', function(msg) {
+			//$('#messages').append($('<li>').text(msg));
+		});
+		socket.on('Hello', function(msg) {
+			socket.emit("control", request.id+"=talk"+"=end="+socket.id );
+		});
+		
+	</script>
+
+</html>

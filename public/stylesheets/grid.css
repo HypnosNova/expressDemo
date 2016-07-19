@@ -1,0 +1,125 @@
+.row {
+	max-width: 9999px;
+	margin-bottom: 10px;
+}
+
+.row .row {
+	margin-top: 0px;
+	margin-bottom: 0;
+	text-align: center;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+[class*="col-"] {
+	
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.tab{
+	background-color: #c5c5c5;
+	font-family: simhei;
+	font-size: 18px;
+	text-align: center;
+	border-bottom: 3px solid #c5c5c5;
+	border-top: 3px solid #c5c5c5;
+}
+
+.selectTab {
+	border-bottom: 3px solid #4fa1d3;
+}
+
+hr {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.foodInfo{
+	padding-right:0 ;
+}
+
+.foodGood{
+	padding-right:0 ;
+	padding-top: 0;
+	padding-bottom:0 ;
+	padding-left:0 ;
+	text-align: center;
+}
+
+.foodMenu{
+	/*background-color: transparent;*/
+	border-bottom: 1px solid #eee;
+	padding: 0px 0px;
+	margin-bottom: 0;
+}
+
+.foodPic{
+	width: 100%;
+	height: 48px;
+}
+
+.foodName{
+	font-family: simhei;
+	font-size: 16px;
+	line-height: 48px;
+}
+
+.alreadyGood{
+	color: #f00;
+}
+
+.notAlreadyGood{
+	color: #999;
+}
+
+.goodbtn{
+	margin-top: 10px;
+	width: 35px;
+}
+
+
+.calander{
+	width: 100%;
+}
+
+.calander th{
+	color: #aaa;
+	text-align: center;
+}
+.calander td{
+	color: #000;
+	text-align: center;
+}
+
+.knifeIcon{
+	margin-top: 5px;
+	width: 24px;
+}
+.datetext{
+	color: #000;
+	font-size: 16px;
+}
+.dateDisable{
+	color: #aaa;
+}
+.today{
+	border-radius: 10px;
+	background-color: #FF0000;
+	
+}
+
+.noEvent{
+	pointer-events: none;
+}
+
+.todayText{
+	color: #ffffff;
+}
+
+
+.foodMouseDown{
+	border-radius: 10px;
+	background-color: #AAAAAA;
+	
+}
